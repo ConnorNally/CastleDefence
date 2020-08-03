@@ -4,9 +4,12 @@ namespace TreehouseDefense
     {
         private readonly Path _path;
         private int _pathStep = 0;
+
+        protected virtual int StepSize { get; } = 1;
+
         public MapLocation Location => _path.GetLocationAt(_pathStep); 
         
-        public int Health { get; private set; } = 2;
+        public virtual int Health { get; protected set; } = 2;
 
         // True if the invader has reached the end of the path
         public bool HasScored { get { return _pathStep >= _path.Length; }}
@@ -20,11 +23,12 @@ namespace TreehouseDefense
             _path = path;
         }
 
-        public void Move() => _pathStep += 1;
+        public void Move() => _pathStep += StepSize;
 
-        public void DecreaseHealth(int factor)
+        public virtual void DecreaseHealth(int factor)
         {
             Health -= factor;
+            System.Console.WriteLine("Shot at and hit an invader!");
         }
     }
 }
