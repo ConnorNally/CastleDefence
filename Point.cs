@@ -32,7 +32,7 @@ namespace TreehouseDefense
 
         public override int GetHashCode()
         {
-            return X.GetHashCode * 31 + Y.GetHashCode;
+            return X.GetHashCode() * 31 + Y.GetHashCode();
         }
 
         public int DistanceTo(int x, int y)

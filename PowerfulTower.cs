@@ -11,7 +11,7 @@ namespace TreehouseDefense
 
         public override bool IsSuccessfulShot()
         {
-            if(_random.NextDouble() < Accuracy)
+            if(Random.NextDouble() < Accuracy)
             {
                 Console.WriteLine("Archer charges up!");
                 return true;
